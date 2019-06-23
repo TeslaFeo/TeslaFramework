@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Shrikhand');
+
+.TF_Logo {
+    font-family: 'Shrikhand', cursive;
+    font-size: 24px;
+    display: inline-block;
+    border-bottom: 4px solid #02BADC;
+    border-radius: 50%;
+    padding: 0 20px;
+    color: #6EDD02;
+}
