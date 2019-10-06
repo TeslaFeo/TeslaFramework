@@ -9,12 +9,12 @@ class mail extends PHPMailer {
         $this->isSMTP();
         $this->isHTML(true);
         $this->CharSet = 'UTF-8';
-        $this->Host = 'ssl://smtp.yandex.ru';
         $this->SMTPSecure = 'SSL';
-        $this->Port = 465;
         $this->SMTPAuth = true;
-        $this->Username = 'login';
-        $this->Password = 'password';
-        $this->setFrom('from@mail.com', 'Name');
+        $this->Host = SMTP_HOST;
+        $this->Port = SMTP_PORT;
+        $this->Username = SMTP_USER;
+        $this->Password = SMTP_PASSWORD;
+        $this->setFrom(SMTP_FROM_MAIL, SMTP_FROM_NAME);
     }
 }

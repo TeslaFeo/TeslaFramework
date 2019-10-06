@@ -13,3 +13,10 @@ define('DB_PORT', '3306');
 define('DEBUG_MODE', true);
 
 define('DEFAULT_ROUTE', 'home');
+
+define('SMTP_HOST', 'ssl://smtp.yandex.ru');
+define('SMTP_PORT', 465);
+define('SMTP_USER', 'login');
+define('SMTP_PASSWORD', 'password');
+define('SMTP_FROM_MAIL', 'mail@example.com');
+define('SMTP_FROM_NAME', 'Name');
