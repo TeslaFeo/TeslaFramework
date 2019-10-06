@@ -1,6 +1,7 @@
 <?php
 class loader {
     public function controller($route) {
+        $route = preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$route);
         $result = $this->findController('controller/'.$route);
 
         if ($result) {
@@ -14,6 +15,7 @@ class loader {
     }
 
     public function model($route) {
+        $route = preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$route);
         $file = DIR_APP.'/model/'.$route.'.php';
         $path = explode('/', $route);
         if ( is_file( $file ) ) {
@@ -27,6 +29,7 @@ class loader {
     }
 
     public function view($route, $data = []) {
+        $route = preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$route);
         $file = DIR_APP.'/view/'.$route.'.php';
         if ( is_file( $file ) ) {
             extract($data);
@@ -38,6 +41,7 @@ class loader {
     }
 
     public function library($route) {
+        $route = preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$route);
         $file = DIR_SYSTEM.'/library/'.$route.'.php';
         $path = explode('/', $route);
         if ( is_file( $file ) ) {
@@ -51,6 +55,7 @@ class loader {
     }
 
     public function helper($route) {
+        $route = preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$route);
         $file = DIR_SYSTEM.'/helper/'.$route.'.php';
         if ( is_file( $file ) ) {
             require_once($file);

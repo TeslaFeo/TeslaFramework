@@ -2,12 +2,18 @@
 class session {
     public $data = [];
 
-    public function __construct(){
+    public function __construct() {
         session_start();
         $this->data = $_SESSION;
     }
 
-    public function __destruct(){
+    public function close() {
+        if ( session_status() == PHP_SESSION_ACTIVE ) {
+            session_write_close();
+        }
+    }
+
+    public function __destruct() {
         $_SESSION = $this->data;
         session_write_close();
     }
