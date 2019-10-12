@@ -34,10 +34,15 @@ class loader {
         if ( is_file( $file ) ) {
             extract($data);
             ob_start();
-            require_once($file);
+            require($file);
             return ob_get_clean();
         }
         exit('Template <b>'.$file.'</b> is not found!');
+    }
+
+    public function template($viewRoute, $data = [], $layoutRoute = false) {
+        registry::get('document')->setContent( $this->view($viewRoute, $data) );
+        return ( $layoutRoute ) ? $this->controller($layoutRoute) : $this->controller( registry::get('config')['default_layout'] );
     }
 
     public function library($route) {

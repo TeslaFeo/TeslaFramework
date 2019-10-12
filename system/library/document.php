@@ -5,6 +5,7 @@ class document {
     private $scripts = [];
     private $title = '';
     private $description = '';
+    private $content = '';
 
     public function __construct() {
         $this->styles = [
@@ -36,6 +37,10 @@ class document {
         $this->description = $description;
     }
 
+    public function setContent($content) {
+        $this->content = $content;
+    }
+
     public function getStyles() {
         return $this->styles;
     }
@@ -50,5 +55,9 @@ class document {
 
     public function getDescription() {
         return $this->description;
+    }
+
+    public function getContent() {
+        return $this->content;
     }
 }

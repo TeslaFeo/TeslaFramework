@@ -15,6 +15,8 @@ $load = new loader();
 
 registry::set('load', $load);
 
+registry::set('config', $CONFIG);
+
 foreach ( $CONFIG['load_helper'] as $helper ) {
     $load->helper($helper);
 }

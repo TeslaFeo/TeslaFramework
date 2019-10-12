@@ -2,6 +2,7 @@
 
 $CONFIG = [
     'default_route' => 'home',
+    'default_layout' => 'common/layout',
     'load_helper' => [
         'common'
     ],
