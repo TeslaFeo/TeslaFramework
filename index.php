@@ -15,14 +15,14 @@ $load = new loader();
 
 registry::set('load', $load);
 
-foreach ( $LOAD_HELPER as $helper ) {
+foreach ( $CONFIG['load_helper'] as $helper ) {
     $load->helper($helper);
 }
 
-foreach ( $LOAD_LIBRARY as $library ) {
+foreach ( $CONFIG['load_library'] as $library ) {
     $load->library($library);
 }
 
-$route = (isset($_GET['route'])) ? (string)$_GET['route'] : DEFAULT_ROUTE;
+$route = (isset($_GET['route'])) ? (string)$_GET['route'] : $CONFIG['default_route'];
 
 echo $load->controller($route);

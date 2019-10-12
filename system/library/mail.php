@@ -11,10 +11,10 @@ class mail extends PHPMailer {
         $this->CharSet = 'UTF-8';
         $this->SMTPSecure = 'SSL';
         $this->SMTPAuth = true;
-        $this->Host = SMTP_HOST;
-        $this->Port = SMTP_PORT;
-        $this->Username = SMTP_USER;
-        $this->Password = SMTP_PASSWORD;
-        $this->setFrom(SMTP_FROM_MAIL, SMTP_FROM_NAME);
+        $this->Host = MAIL_SMTP_HOST;
+        $this->Port = MAIL_SMTP_PORT;
+        $this->Username = MAIL_SMTP_USER;
+        $this->Password = MAIL_SMTP_PASSWORD;
+        $this->setFrom(MAIL_FROM_MAIL, MAIL_FROM_NAME);
     }
 }

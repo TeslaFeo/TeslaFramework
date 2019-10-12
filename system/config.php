@@ -1,12 +1,14 @@
 <?php
 
-$LOAD_HELPER = [
-    'common'
-];
-
-$LOAD_LIBRARY = [
-    'request',
-//    'db',
-    'document',
-    'session',
+$CONFIG = [
+    'default_route' => 'home',
+    'load_helper' => [
+        'common'
+    ],
+    'load_library' => [
+        'request',
+//        'db',
+        'document',
+        'session',
+    ]
 ];
