@@ -1,6 +1,6 @@
 <?php
-class app {
+class App {
     public function __get($name){
-        return registry::get($name);
+        return Registry::get($name);
     }
 }

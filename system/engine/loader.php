@@ -1,5 +1,5 @@
 <?php
-class loader {
+class Loader extends App {
     public function controller($route) {
         $route = preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$route);
         $result = $this->findController('controller/'.$route);
@@ -22,7 +22,7 @@ class loader {
             require_once($file);
             $class = 'Model'.implode('', $path);
             $key = 'model_'.implode('_', $path);
-            registry::set($key, new $class());
+            Registry::set($key, new $class());
         } else {
             exit('Model <b>'.$file.'</b> is not found!');
         }
@@ -41,8 +41,10 @@ class loader {
     }
 
     public function template($viewRoute, $data = [], $layoutRoute = false) {
-        registry::get('document')->setContent( $this->view($viewRoute, $data) );
-        return ( $layoutRoute ) ? $this->controller($layoutRoute) : $this->controller( registry::get('config')['default_layout'] );
+        $viewRoute = preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$viewRoute);
+        $layoutRoute = ( $layoutRoute === false ) ? $layoutRoute : preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$layoutRoute);
+        $this->document->setContent( $this->view($viewRoute, $data) );
+        return ( $layoutRoute ) ? $this->controller($layoutRoute) : $this->controller( $this->config['default_layout'] );
     }
 
     public function library($route) {
@@ -53,7 +55,7 @@ class loader {
             require_once($file);
             $class = end($path);
             $key = end($path);
-            registry::set($key, new $class());
+            Registry::set($key, new $class());
         } else {
             exit('Library <b>'.$file.'</b> is not found!');
         }

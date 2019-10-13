@@ -1,4 +1,4 @@
 <?php
-class ModelHome extends app {
+class ModelHome extends App {
 
 }

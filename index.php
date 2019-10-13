@@ -11,16 +11,14 @@ if ( DEBUG_MODE ) {
     ini_set('display_errors', 0);
 }
 
-$load = new loader();
+$load = new Loader();
 
-registry::set('load', $load);
-
-registry::set('config', $CONFIG);
+Registry::set('load', $load);
+Registry::set('config', $CONFIG);
 
 foreach ( $CONFIG['load_helper'] as $helper ) {
     $load->helper($helper);
 }
-
 foreach ( $CONFIG['load_library'] as $library ) {
     $load->library($library);
 }

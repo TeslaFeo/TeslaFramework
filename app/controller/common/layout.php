@@ -1,5 +1,5 @@
 <?php
-class ControllerCommonLayout extends app{
+class ControllerCommonLayout extends App {
     public function index() {
         $data['title']       = $this->document->getTitle();
         $data['description'] = $this->document->getDescription();

@@ -1,5 +1,5 @@
 <?php
-class registry {
+class Registry {
     private static $data = [];
 
     public static function get($key) {
